@@ -374,27 +374,13 @@
   };
 
   GeminiScrollbar.prototype._createResizeTrigger = function createResizeTrigger() {
-    // We need to arrange for self.scrollbar.update to be called whenever
-    // the DOM is changed resulting in a size-change for our div. To make
-    // this happen, we use a technique described here:
-    // http://www.backalleycoder.com/2013/03/18/cross-browser-event-based-element-resize-detection/.
-    //
-    // The idea is that we create an <object> element in our div, which we
-    // arrange to have the same size as that div. The <object> element
-    // contains a Window object, to which we can attach an onresize
-    // handler.
-    //
-    // (React appears to get very confused by the object (we end up with
-    // Chrome windows which only show half of the text they are supposed
-    // to), so we always do this manually.)
+
 
     var element = this.element;
     var resizeHandler = this._resizeHandler.bind(this);
     var sensor = new ResizeSensor(element, function() {
-        console.log('Changed to ' + element.clientWidth);
         resizeHandler();
     });
-    console.log(sensor, "@sensor")
 
     this._resizeTriggerInstance = sensor;
   };
