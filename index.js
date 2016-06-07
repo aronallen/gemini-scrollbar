@@ -7,7 +7,11 @@
  * @license MIT
  */
 (function() {
-
+  try {
+    window.requestAnimationFrame;
+  } catch (e) {
+    var window = global;
+  }
 
   var requestAnimationFrame = window.requestAnimationFrame ||
       window.mozRequestAnimationFrame ||
