@@ -3,7 +3,7 @@
   "version": "1.4.1",
   "description": "Custom scrollbars with native scrolling",
   "license": "MIT",
-  "repository": "noeldelgado/gemini-scrollbar.git",
+  "repository": "aronallen/gemini-scrollbar.git",
   "author": "Noel Delgado <auhcsei@gmail.com> (http://pixelia.me/)",
   "homepage": "https://github.com/aronallen/gemini-scrollbar",
   "scripts": {
