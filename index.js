@@ -361,13 +361,11 @@
   GeminiScrollbar.prototype._createResizeTrigger = function createResizeTrigger() {
 
 
-    var element = this.element;
     var resizeHandler = this._resizeHandler.bind(this);
-    var sensor = new ResizeSensor(element, function() {
-        resizeHandler();
-    });
-
-    this._resizeTriggerInstance = sensor;
+    var innerSensor = new ResizeSensor(this.element, resizeHandler);
+    var outerSensor = new ResizeSensor(this._viewElement.childNodes[0], resizeHandler);
+    console.log(innerSensor, outerSensor)
+    this._resizeTriggerInstance = [outerSensor, innerSensor];
   };
 
   GeminiScrollbar.prototype.update = function update() {
@@ -400,7 +398,9 @@
 
   GeminiScrollbar.prototype.destroy = function destroy() {
     if (this._resizeTriggerInstance) {
-      this._resizeTriggerInstance.detach();
+      this._resizeTriggerInstance.forEach(function (instance) {
+        instance.detach();
+      });
     }
 
     if (DONT_CREATE_GEMINI) {

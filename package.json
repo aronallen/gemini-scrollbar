@@ -1,6 +1,6 @@
 {
   "name": "@findash/gemini-scrollbarr",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Custom scrollbars with native scrolling",
   "license": "MIT",
   "repository": "aronallen/gemini-scrollbar.git",
