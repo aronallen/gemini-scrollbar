@@ -364,7 +364,6 @@
     var resizeHandler = this._resizeHandler.bind(this);
     var innerSensor = new ResizeSensor(this.element, resizeHandler);
     var outerSensor = new ResizeSensor(this._viewElement.childNodes[0], resizeHandler);
-    console.log(innerSensor, outerSensor)
     this._resizeTriggerInstance = [outerSensor, innerSensor];
   };
 
